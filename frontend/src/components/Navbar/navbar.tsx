@@ -1,3 +1,5 @@
+import Logo from "../../assets/CherryPizzaLogo.svg";
+
 const Navbar = () => {
   return (
     <div className="navbar bg-white text-red-600">
@@ -36,8 +38,8 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost normal-case text-xl text-red-600">
-          daisyUI
+        <a className="hover:opacity-70">
+          <img src={Logo} alt="logo" className="w-10" />
         </a>
       </div>
       <div className="navbar-end">
