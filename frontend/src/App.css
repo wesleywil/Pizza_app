@@ -37,4 +37,7 @@ body {
   .size_screen {
     min-height: 100vh;
   }
+  .odd:nth-of-type(odd) {
+    flex-direction: row-reverse;
+  }
 }

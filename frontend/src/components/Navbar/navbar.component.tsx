@@ -1,6 +1,8 @@
 import Logo from "../../assets/CherryPizzaLogo.svg";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  let activeClassName = "underline";
   return (
     <div className="navbar bg-white text-red-600">
       <div className="navbar-start">
@@ -26,10 +28,25 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52"
           >
             <li>
-              <a>Homepage</a>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? activeClassName : undefined
+                }
+                end
+              >
+                Homepage
+              </NavLink>
             </li>
             <li>
-              <a>Portfolio</a>
+              <NavLink
+                to="/menu"
+                className={({ isActive }) =>
+                  isActive ? activeClassName : undefined
+                }
+              >
+                Menu
+              </NavLink>
             </li>
             <li>
               <a>About</a>
