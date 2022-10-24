@@ -1,4 +1,4 @@
-import Logo from "../assets/CherryPizzaLogo.svg";
+import Logo from "../../assets/CherryPizzaLogo.svg";
 
 const Homepage = () => {
   return (
