@@ -8,7 +8,7 @@ const ingredients: Array<{ name: string; price: number }> = Array(
 
 const PizzaMakerIngredients = () => {
   return (
-    <div className="w-11/12 xl:w-1/2 mx-auto rounded-b-xl p-2 text-[#f1f2f2] bg-black/30 backdrop-blur-sm h-72 xl:h-96 overflow-y-auto">
+    <div className="w-11/12 xl:w-1/2 mx-auto rounded-b-xl p-2 text-[#f1f2f2] bg-green-600/30 backdrop-blur-sm h-72 xl:h-96 overflow-y-auto">
       <h3 className="text-center text-2xl mb-2 border-b">INGREDIENTS</h3>
       <div className="text-xl flex flex-col gap-2 pb-2">
         {ingredients.map((item, i) => (
