@@ -23,7 +23,7 @@ body {
 }
 
 .bg_pizza {
-  background-image: url("../public/bg_pizza.jpg");
+  background-image: url("/bg_pizza.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -31,6 +31,13 @@ body {
 .size_screen {
   min-height: 920px;
   max-height: 100vh;
+}
+
+@media (min-width: 720px) {
+  .size_screen_2 {
+    min-height: 920px;
+    max-height: 100vh;
+  }
 }
 
 @media (max-width: 420px) {

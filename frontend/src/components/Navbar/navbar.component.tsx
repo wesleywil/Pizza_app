@@ -49,7 +49,14 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <a>About</a>
+              <NavLink
+                to="/create"
+                className={({ isActive }) =>
+                  isActive ? activeClassName : undefined
+                }
+              >
+                Create Pizza
+              </NavLink>
             </li>
           </ul>
         </div>
