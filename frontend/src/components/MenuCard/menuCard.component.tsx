@@ -1,6 +1,6 @@
 const MenuCard = () => {
   return (
-    <div className="w-full  flex gap-2 p-2 bg-green-600/30 backdrop-blur-sm odd">
+    <div className="w-full  flex gap-2 p-2 bg-black/30 backdrop-blur-sm odd">
       <div className="ml-1 flex-none self-center">
         <img
           src="https://dummyimage.com/100x100"

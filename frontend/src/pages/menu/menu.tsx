@@ -5,7 +5,7 @@ import SearchBar from "../../components/SearchBar/searchBar.component";
 const Menu = () => {
   return (
     <div className="bg_pizza">
-      <div className="bg-pink-900/40 flex flex-col items-center">
+      <div className="bg-pink-900/40 flex flex-col items-center size_screen">
         <h1 className="text-3xl text-[#f1f2f2] mt-12 self-center">MENU</h1>
         <div className="mt-2 flex w-3/4	xl:w-1/3">
           <SearchBar />
