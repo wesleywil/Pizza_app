@@ -58,6 +58,16 @@ const Navbar = () => {
                 Create Pizza
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/account"
+                className={({ isActive }) =>
+                  isActive ? activeClassName : undefined
+                }
+              >
+                Login/Register
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>
