@@ -8,6 +8,8 @@ import Logo from "../../assets/CherryPizzaLogo.svg";
 
 const Navbar = () => {
   let activeClassName = "underline";
+  let adminClassName =
+    "underline bg-[#cb0033] text-[#f1f2f2] px-2 py-1 rounded-xl";
   return (
     <div className="navbar bg-white text-red-600">
       <div className="navbar-start">
@@ -82,6 +84,18 @@ const Navbar = () => {
         </a>
       </div>
       <div className="navbar-end">
+        <div>
+          <NavLink
+            to="/admin"
+            className={({ isActive }) =>
+              isActive
+                ? adminClassName
+                : "bg-[#ef90a9] hover:bg-[#c56780] text-[#f1f2f2] px-2 py-1 rounded-xl"
+            }
+          >
+            Admin
+          </NavLink>
+        </div>
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost rounded-btn text-xl">
             <FaShoppingCart />
