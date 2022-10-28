@@ -1,4 +1,4 @@
-import MenuCard from "../../components/MenuCard/menuCard.component";
+import GeneralCard from "../../components/GeneralCard/generalCard.component";
 import ButtonFilter from "../../components/ButtonFilter/buttonFilter.component";
 import SearchBar from "../../components/SearchBar/searchBar.component";
 
@@ -17,12 +17,42 @@ const Menu = () => {
           <ButtonFilter filterBy="Specials" />
         </div>
         <div className="flex flex-col gap-4 h-96 xl:h-1/4 md:h-1/4 w-11/12 xl:w-1/2 rounded-xl overflow-x-hidden transition duration-700 ease-in-out">
-          <MenuCard />
-          <MenuCard />
-          <MenuCard />
-          <MenuCard />
-          <MenuCard />
-          <MenuCard />
+          <GeneralCard
+            title="Mussarela"
+            subTitle="mussarela black olives"
+            price={22}
+            btnName="Order"
+          />
+          <GeneralCard
+            title="Pepperoni"
+            subTitle="mussarela black olives pepperoni"
+            price={18}
+            btnName="Order"
+          />
+          <GeneralCard
+            title="Calabresa"
+            subTitle="mussarela black olives calabresa"
+            price={20}
+            btnName="Order"
+          />
+          <GeneralCard
+            title="Duo Cheese"
+            subTitle="mussarela cheese2 black olives"
+            price={24}
+            btnName="Order"
+          />
+          <GeneralCard
+            title="Margarita"
+            subTitle="mussarela idk black olives"
+            price={28}
+            btnName="Order"
+          />
+          <GeneralCard
+            title="Four Seasons"
+            subTitle="mussarela idk idk another black olives"
+            price={32.5}
+            btnName="Order"
+          />
         </div>
       </div>
     </div>
