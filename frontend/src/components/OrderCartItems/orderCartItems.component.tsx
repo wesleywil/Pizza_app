@@ -5,8 +5,8 @@ const OrderCardItems = () => {
     <li className="w-full border p-2 my-1 flex justify-between">
       <img src={PizzaImage} alt="pizza icon" className="w-12 rounded-full" />
       <span className="self-center ml-2 text-xl">1</span>
-      <select className="select">
-        <option disabled selected>
+      <select className="select" defaultValue={0}>
+        <option value="0" disabled>
           Qtd
         </option>
         <option>1</option>

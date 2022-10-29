@@ -10,6 +10,7 @@ import ButtonAdminSection from "../../components/ButtonAdminSection/buttonAdminS
 import GeneralCard from "../../components/GeneralCard/generalCard.component";
 import AdminSection from "../../components/AdminSection/adminSection.component";
 import AdminOrderCard from "../../components/AdminOrderCard/adminOrderCard.component";
+import OrderDetails from "../../components/OrderDetails/orderDetails.component";
 
 const Admin = () => {
   const action = useSelector((state: RootState) => state.sectionChange.value);
@@ -146,6 +147,7 @@ const Admin = () => {
           )}
         </div>
       </div>
+      <OrderDetails />
     </div>
   );
 };
