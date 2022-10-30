@@ -124,4 +124,7 @@ sftp-config.json
 !.vscode/extensions.json 
 .history
 
+# Migrations
+accounts/migrations
+
 
