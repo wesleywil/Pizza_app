@@ -145,3 +145,7 @@ MEDIA_ROOT = BASE_DIR / 'static'/'images'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.User'
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
