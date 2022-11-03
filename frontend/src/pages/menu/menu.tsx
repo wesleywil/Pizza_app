@@ -1,8 +1,24 @@
+import type { RootState } from "../../redux/store";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchPizzas } from "../../redux/pizzas/pizzas";
+
 import GeneralCard from "../../components/GeneralCard/generalCard.component";
 import ButtonFilter from "../../components/ButtonFilter/buttonFilter.component";
 import SearchBar from "../../components/SearchBar/searchBar.component";
+import { useEffect } from "react";
 
 const Menu = () => {
+  const pizzaStatus = useSelector((state: RootState) => state.pizza.status);
+  const pizzas = useSelector((state: RootState) => state.pizza.pizzas);
+  const dispatch = useDispatch<any>();
+
+  useEffect(() => {
+    console.log("USE EFFECT MENU PAGE!");
+    if (pizzaStatus === "idle") {
+      dispatch(fetchPizzas());
+    }
+  }, [pizzas, pizzaStatus]);
+
   return (
     <div className="bg_pizza">
       <div className="bg-pink-900/40 flex flex-col items-center size_screen">
@@ -17,42 +33,17 @@ const Menu = () => {
           <ButtonFilter filterBy="Specials" />
         </div>
         <div className="flex flex-col gap-4 h-96 xl:h-1/4 md:h-1/4 w-11/12 xl:w-1/2 rounded-xl overflow-x-hidden transition duration-700 ease-in-out">
-          <GeneralCard
-            title="Mussarela"
-            subTitle="mussarela black olives"
-            price={22}
-            btnName="Order"
-          />
-          <GeneralCard
-            title="Pepperoni"
-            subTitle="mussarela black olives pepperoni"
-            price={18}
-            btnName="Order"
-          />
-          <GeneralCard
-            title="Calabresa"
-            subTitle="mussarela black olives calabresa"
-            price={20}
-            btnName="Order"
-          />
-          <GeneralCard
-            title="Duo Cheese"
-            subTitle="mussarela cheese2 black olives"
-            price={24}
-            btnName="Order"
-          />
-          <GeneralCard
-            title="Margarita"
-            subTitle="mussarela idk black olives"
-            price={28}
-            btnName="Order"
-          />
-          <GeneralCard
-            title="Four Seasons"
-            subTitle="mussarela idk idk another black olives"
-            price={32.5}
-            btnName="Order"
-          />
+          {pizzas.length
+            ? pizzas.map((item) => (
+                <GeneralCard
+                  key={item.id}
+                  title={item.name}
+                  subTitle={item.description}
+                  price={item.price}
+                  btnName="Order"
+                />
+              ))
+            : ""}
         </div>
       </div>
     </div>
