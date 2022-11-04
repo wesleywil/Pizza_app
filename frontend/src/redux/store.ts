@@ -3,12 +3,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import sectionReducer from "./adminSection/adminSectionSlice";
 import orderReducer from "./orderDetails/orderDetails";
 import pizzaReducer from "./pizzas/pizzas";
+import ingredientReducer from "./ingredients/ingredients";
 
 export const store = configureStore({
   reducer: {
     sectionChange: sectionReducer,
     order: orderReducer,
     pizza: pizzaReducer,
+    ingredients: ingredientReducer,
   },
 });
 

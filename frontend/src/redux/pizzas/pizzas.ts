@@ -55,7 +55,7 @@ export const pizzaSlice = createSlice({
         state.pizzas = action.payload;
       })
       .addCase(fetchPizzas.rejected, (state) => {
-        state.status = "loading";
+        state.error = "error";
       });
   },
 });
