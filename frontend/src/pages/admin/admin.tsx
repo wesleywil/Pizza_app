@@ -5,16 +5,34 @@ import {
   ingredients,
   orders,
 } from "../../redux/adminSection/adminSectionSlice";
+import { fetchPizzas } from "../../redux/pizzas/pizzas";
+import { fetchIngredients } from "../../redux/ingredients/ingredients";
 
 import ButtonAdminSection from "../../components/ButtonAdminSection/buttonAdminSection.component";
 import GeneralCard from "../../components/GeneralCard/generalCard.component";
 import AdminSection from "../../components/AdminSection/adminSection.component";
 import AdminOrderCard from "../../components/AdminOrderCard/adminOrderCard.component";
 import OrderDetails from "../../components/OrderDetails/orderDetails.component";
+import { useEffect } from "react";
 
 const Admin = () => {
   const action = useSelector((state: RootState) => state.sectionChange.value);
-  const dispatch = useDispatch();
+  const pizzas = useSelector((state: RootState) => state.pizza.pizzas);
+  const ing = useSelector((state: RootState) => state.ingredients.ingredients);
+  const pizzaStatus = useSelector((state: RootState) => state.pizza.status);
+  const ingredientsStatus = useSelector(
+    (state: RootState) => state.ingredients.status
+  );
+  const dispatch = useDispatch<any>();
+
+  useEffect(() => {
+    if (pizzaStatus === "idle") {
+      dispatch(fetchPizzas());
+    }
+    if (ingredientsStatus === "idle") {
+      dispatch(fetchIngredients());
+    }
+  });
 
   return (
     <div className="bg_pizza">
@@ -47,75 +65,31 @@ const Admin = () => {
                 </>
               }
             >
-              <GeneralCard
-                title="Mussarela"
-                subTitle="mussarela black olives"
-                price={22}
-                btnName="Edit"
-              />
-              <GeneralCard
-                title="Pepperoni"
-                subTitle="mussarela black olives pepperoni"
-                price={18}
-                btnName="Edit"
-              />
-              <GeneralCard
-                title="Calabresa"
-                subTitle="mussarela black olives calabresa"
-                price={20}
-                btnName="Edit"
-              />
-              <GeneralCard
-                title="Duo Cheese"
-                subTitle="mussarela cheese2 black olives"
-                price={24}
-                btnName="Edit"
-              />
-              <GeneralCard
-                title="Margarita"
-                subTitle="mussarela idk black olives"
-                price={28}
-                btnName="Edit"
-              />
-              <GeneralCard
-                title="Four Seasons"
-                subTitle="mussarela idk idk another black olives"
-                price={32.5}
-                btnName="Edit"
-              />
+              {pizzas.length
+                ? pizzas.map((item) => (
+                    <GeneralCard
+                      key={item.id}
+                      title={item.name}
+                      subTitle={item.description}
+                      price={item.price}
+                      btnName="Edit"
+                    />
+                  ))
+                : ""}
             </AdminSection>
           ) : action === 1 ? (
             <AdminSection title="Ingredients">
-              <GeneralCard
-                title="Extra Cheese"
-                subTitle="Mussarela"
-                price={5}
-                btnName="Edit"
-              />
-              <GeneralCard
-                title="Mushroom"
-                subTitle="Shitake mushrooms"
-                price={8.5}
-                btnName="Edit"
-              />
-              <GeneralCard
-                title="Green Pepper"
-                subTitle="Green Pepper slices"
-                price={0.8}
-                btnName="Edit"
-              />
-              <GeneralCard
-                title="Pepperoni"
-                subTitle="Pepperoni Slices"
-                price={6.2}
-                btnName="Edit"
-              />
-              <GeneralCard
-                title="Fresh Garlic"
-                subTitle="Fresh Garlic Slices"
-                price={1.25}
-                btnName="Edit"
-              />
+              {ing.length
+                ? ing.map((item) => (
+                    <GeneralCard
+                      key={item.id}
+                      title={item.name}
+                      subTitle=""
+                      price={item.price}
+                      btnName="Edit"
+                    />
+                  ))
+                : ""}
             </AdminSection>
           ) : (
             <AdminSection
