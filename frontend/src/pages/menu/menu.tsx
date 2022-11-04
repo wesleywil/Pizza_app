@@ -9,7 +9,17 @@ import { useEffect } from "react";
 
 const Menu = () => {
   const pizzaStatus = useSelector((state: RootState) => state.pizza.status);
-  const pizzas = useSelector((state: RootState) => state.pizza.pizzas);
+  const pizzas = useSelector((state: RootState) => {
+    const all = state.pizza.pizzas;
+    const filterName = state.pizza.filter;
+    if (filterName === "") {
+      return all;
+    } else {
+      return all.filter((item) => {
+        return item.name.toLowerCase().includes(filterName.toLowerCase());
+      });
+    }
+  });
   const dispatch = useDispatch<any>();
 
   useEffect(() => {

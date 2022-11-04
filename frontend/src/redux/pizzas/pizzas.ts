@@ -14,6 +14,7 @@ export interface State {
   status: string;
   error: any;
   pizza: any;
+  filter: string;
 }
 
 const initialState: State = {
@@ -21,6 +22,7 @@ const initialState: State = {
   status: "idle",
   error: null,
   pizza: null,
+  filter: "",
 };
 
 export const fetchPizzas = createAsyncThunk("pizzas/fetchAll", async () => {
@@ -38,11 +40,8 @@ export const pizzaSlice = createSlice({
     pizzaById: (state, action: PayloadAction<number>) => {
       state.pizza = state.pizzas.find(({ id }) => id === action.payload);
     },
-    // Need to create a better filter that don't mutate the pizzas array
     pizzaFilter: (state, action: PayloadAction<string>) => {
-      state.pizzas = state.pizzas.filter((item: Pizza) => {
-        return item.name.toLowerCase().includes(action.payload.toLowerCase());
-      });
+      state.filter = action.payload;
     },
   },
   extraReducers: (builder) => {
