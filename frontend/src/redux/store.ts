@@ -4,6 +4,7 @@ import sectionReducer from "./adminSection/adminSectionSlice";
 import orderReducer from "./orderDetails/orderDetails";
 import pizzaReducer from "./pizzas/pizzas";
 import ingredientReducer from "./ingredients/ingredients";
+import customPizzaReducer from "./customPizza/customPizza";
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     order: orderReducer,
     pizza: pizzaReducer,
     ingredients: ingredientReducer,
+    customPizza: customPizzaReducer,
   },
 });
 

@@ -1,6 +1,7 @@
 import type { RootState } from "../../redux/store";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchIngredients } from "../../redux/ingredients/ingredients";
+import { addIngredient } from "../../redux/customPizza/customPizza";
 import { useEffect } from "react";
 
 const PizzaMakerIngredients = () => {
@@ -30,7 +31,10 @@ const PizzaMakerIngredients = () => {
                 <span className=" self-center w-24 text-center">
                   $ {item.price}
                 </span>
-                <button className="bg-[#cb0033] hover:opacity-80 px-4 self-end ">
+                <button
+                  onClick={() => dispatch(addIngredient(item))}
+                  className="bg-[#cb0033] hover:opacity-80 px-4 self-end "
+                >
                   +
                 </button>
               </div>
