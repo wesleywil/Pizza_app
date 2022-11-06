@@ -1,21 +1,30 @@
-import PizzaImage from "../../assets/pizza.jpg";
+type CardItems = {
+  picture: string;
+  price: number;
+  qtd?: number;
+};
 
-const OrderCardItems = () => {
+const OrderCardItems = ({ picture, price, qtd }: CardItems) => {
   return (
     <li className="w-full border p-2 my-1 flex justify-between">
-      <img src={PizzaImage} alt="pizza icon" className="w-12 rounded-full" />
-      <span className="self-center ml-2 text-xl">1</span>
-      <select className="select" defaultValue={0}>
-        <option value="0" disabled>
+      <img
+        src={`http://localhost:8000${picture}`}
+        alt="pizza icon"
+        className="w-12 rounded-full"
+      />
+
+      <select className="select" defaultValue={qtd}>
+        <option value={0} disabled>
           Qtd
         </option>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+        <option value={1}>1</option>
+        <option value={2}>2</option>
+        <option value={3}>3</option>
+        <option value={4}>4</option>
+        <option value={5}>5</option>
+        <option value={6}>6</option>
       </select>
-      <span className="self-center text-xl">$ 22.00</span>
+      <span className="self-center text-xl">$ {price}</span>
     </li>
   );
 };

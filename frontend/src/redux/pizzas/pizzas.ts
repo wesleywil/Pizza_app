@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
-interface Pizza {
+export interface Pizza {
   id: number;
   name: string;
   picture: string;

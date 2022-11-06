@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ingredients } from "../adminSection/adminSectionSlice";
 
 interface Ingredient {
   id: number;
@@ -7,12 +6,12 @@ interface Ingredient {
   price: number;
 }
 
-export interface customPizzaState {
+export interface CustomPizzaState {
   ingredients: Array<Ingredient>;
   total: number;
 }
 
-const initialState: customPizzaState = {
+const initialState: CustomPizzaState = {
   ingredients: [],
   total: 0.0,
 };
@@ -28,10 +27,6 @@ export const customPizzaSlice = createSlice({
         return {
           ...state,
           ingredients: [...state.ingredients, action.payload],
-          total: state.ingredients.reduce<number>(
-            (n, { price }) => +n + +price,
-            0
-          ),
         };
     },
     addTotal: (state, action: PayloadAction<number>) => {

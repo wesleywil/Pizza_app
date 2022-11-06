@@ -1,6 +1,7 @@
 import type { RootState } from "../../redux/store";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPizzas } from "../../redux/pizzas/pizzas";
+import { addToCart } from "../../redux/cart/cart";
 
 import GeneralCard from "../../components/GeneralCard/generalCard.component";
 import ButtonFilter from "../../components/ButtonFilter/buttonFilter.component";
@@ -51,6 +52,11 @@ const Menu = () => {
                   subTitle={item.description}
                   price={item.price}
                   btnName="Order"
+                  btnAction={() =>
+                    dispatch(
+                      addToCart({ product: item, quantity: 2, total: 0 })
+                    )
+                  }
                 />
               ))
             : ""}

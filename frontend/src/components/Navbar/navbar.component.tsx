@@ -1,8 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
 
-import OrderCardItems from "../OrderCartItems/orderCartItems.component";
-import OrderCartTotal from "../OrderCartTotal/orderCartTotal.component";
+import Cart from "../Cart/cart.component";
 
 import Logo from "../../assets/CherryPizzaLogo.svg";
 
@@ -96,28 +94,7 @@ const Navbar = () => {
             Admin
           </NavLink>
         </div>
-        <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn btn-ghost rounded-btn text-xl">
-            <FaShoppingCart />
-          </label>
-          <ul
-            tabIndex={0}
-            className=" dropdown-content p-2 shadow bg-base-100 rounded-xl w-72 mt-4"
-          >
-            <OrderCardItems />
-            <OrderCartTotal />
-            <li className="w-full bg-[#cb0033] hover:bg-[#ef90a9] text-[#f1f2f2] p-2 font-bold text-xl text-center rounded transition duration-700 ease-in-out">
-              <NavLink
-                to="/order"
-                className={({ isActive }) =>
-                  isActive ? activeClassName : undefined
-                }
-              >
-                ORDER
-              </NavLink>
-            </li>
-          </ul>
-        </div>
+        <Cart />
       </div>
     </div>
   );

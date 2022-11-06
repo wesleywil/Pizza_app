@@ -5,6 +5,7 @@ import orderReducer from "./orderDetails/orderDetails";
 import pizzaReducer from "./pizzas/pizzas";
 import ingredientReducer from "./ingredients/ingredients";
 import customPizzaReducer from "./customPizza/customPizza";
+import cartReducer from "./cart/cart";
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     pizza: pizzaReducer,
     ingredients: ingredientReducer,
     customPizza: customPizzaReducer,
+    cart: cartReducer,
   },
 });
 
