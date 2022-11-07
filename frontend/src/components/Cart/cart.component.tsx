@@ -28,6 +28,7 @@ const Cart = () => {
           ? orderItems.map((item) => (
               <OrderCardItems
                 key={item.product.id}
+                id={item.product.id}
                 picture={item.product.picture}
                 price={item.product.price}
               />

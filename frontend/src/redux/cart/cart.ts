@@ -3,7 +3,7 @@ import { Pizza } from "../pizzas/pizzas";
 
 interface CartItem {
   product: Pizza;
-  quantity?: number;
+  quantity: number;
   total?: number;
 }
 
@@ -33,9 +33,28 @@ export const cartSlice = createSlice({
     sumTotal: (state, action: PayloadAction<number>) => {
       state.total = action.payload;
     },
+    addQuantity: (state, action: PayloadAction<number>) => {
+      const itemInCart = state.items.find(
+        (item) => item.product.id === action.payload
+      );
+      if (itemInCart) {
+        itemInCart.quantity++;
+      }
+    },
+    subQuantity: (state, action: PayloadAction<number>) => {
+      const itemInCart = state.items.find(
+        (item) => item.product.id === action.payload
+      );
+      if (itemInCart) {
+        if (itemInCart.quantity > 0) {
+          itemInCart.quantity--;
+        }
+      }
+    },
   },
 });
 
-export const { addToCart, sumTotal } = cartSlice.actions;
+export const { addToCart, sumTotal, addQuantity, subQuantity } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;

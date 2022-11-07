@@ -11,7 +11,7 @@ const OrderCartTotal = () => {
   useEffect(() => {
     let sum = 0.0;
     items.forEach((item) => {
-      sum += +item.product.price;
+      sum += +item.product.price * item.quantity;
     });
     dispatch(sumTotal(sum));
   }, [items]);

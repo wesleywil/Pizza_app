@@ -54,7 +54,7 @@ const Menu = () => {
                   btnName="Order"
                   btnAction={() =>
                     dispatch(
-                      addToCart({ product: item, quantity: 2, total: 0 })
+                      addToCart({ product: item, quantity: 1, total: 0 })
                     )
                   }
                 />
