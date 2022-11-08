@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Local Apps
     'accounts',
     'products',
+    'orders',
     # Third party apps
     'rest_framework',
     'corsheaders',

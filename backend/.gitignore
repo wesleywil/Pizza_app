@@ -127,5 +127,6 @@ sftp-config.json
 # Migrations
 accounts/migrations
 products/migrations
+orders/migrations
 
 
