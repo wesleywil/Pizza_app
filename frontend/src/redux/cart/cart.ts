@@ -46,15 +46,21 @@ export const cartSlice = createSlice({
         (item) => item.product.id === action.payload
       );
       if (itemInCart) {
-        if (itemInCart.quantity > 0) {
+        if (itemInCart.quantity > 1) {
           itemInCart.quantity--;
         }
       }
     },
+    removeFromCart: (state, action: PayloadAction<number>) => {
+      console.log("REMOVE");
+      state.items = state.items.filter(
+        (item) => item.product.id !== action.payload
+      );
+    },
   },
 });
 
-export const { addToCart, sumTotal, addQuantity, subQuantity } =
+export const { addToCart, sumTotal, addQuantity, subQuantity, removeFromCart } =
   cartSlice.actions;
 
 export default cartSlice.reducer;
