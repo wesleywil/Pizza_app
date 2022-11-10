@@ -16,7 +16,9 @@ class Order(models.Model):
     status = models.IntegerField(Status.choices, default= Status.OPEN)
 
     def __str__(self):
-        return f"{self.profile.user.username} - order total = $ {self.total}"
+        if self.profile:
+            return f"{self.profile.user.username} - order total = $ {self.total}"
+        return f"Total => {self.total}"
 
 class OrderItems(models.Model):
     product = models.ForeignKey(Pizza, on_delete=models.CASCADE)
