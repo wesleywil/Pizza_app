@@ -9,6 +9,7 @@ const Order = () => {
 
   useEffect(() => {
     console.log("ITEMS => ", orderItems);
+    localStorage.setItem("cart", JSON.stringify({ items: orderItems }));
   }, [orderItems]);
 
   return (
