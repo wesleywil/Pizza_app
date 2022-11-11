@@ -10,9 +10,10 @@ interface OrderItems {
 }
 
 interface Order {
-  id: number;
+  id?: number;
   profile?: any;
   orderItems: Array<OrderItems>;
+  status: string;
   total: number;
 }
 
@@ -33,6 +34,15 @@ export const fetchOrders = createAsyncThunk("orderData/fetchAll", async () => {
   const res = await axios.get("http://localhost:8000/orders/?format=json");
   return res.data;
 });
+
+export const createOrder = createAsyncThunk(
+  "orderData/createOrder",
+  async (data: any) => {
+    console.log("Creating new order");
+    const res = await axios.post("http://localhost:8000/orders/", data);
+    return res.data;
+  }
+);
 
 export const orderDataSlice = createSlice({
   name: "orderData",
